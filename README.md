@@ -1,7 +1,7 @@
 ### Hello, I'm Nguyen Khac Khanh (Encacap) 👋
 - 🔭 I’m currently working on Webopers Group
 - 🌱 I’m currently learning ReactJS, NodeJS
-- ⚡ Some of my projects: encacap.webopers.com/project
+- ⚡ Some of my projects: https://www.encacap.com/projects
 
 <!--
 **encacap/encacap** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
