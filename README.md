@@ -1,6 +1,6 @@
 ### Hello, I'm Nguyen Khac Khanh (Encacap) 👋
-- 🔭 I’m currently working on Webopers Group
-- 🌱 I’m currently learning ReactJS, NodeJS
+- 🔭 I’m currently working on Webopers Group.
+- 🌱 I’m currently learning ReactJS, NodeJS, NextJS, NestJS.
 - ⚡ Some of my projects: https://www.encacap.com/projects
 
 <!--
