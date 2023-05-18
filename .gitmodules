@@ -1,3 +1,4 @@
 [submodule "encacap_re_api"]
 	path = encacap_re_api
 	url = https://github.com/encacap/encacap_re_api.git
+	branch = main
