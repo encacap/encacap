@@ -49,6 +49,32 @@ services:
       - postgres
       - redis
 
+  re-dashboard:
+    container_name: encacap-dev-re-dashboard
+    build:
+      context: ../../encacap_re_dashboard/.
+      dockerfile: ../.docker/dev/Dockerfile
+      target: re-dashboard-builder
+    image: encacap-dev-re-dashboard
+    ports:
+      - 3012:3012
+    command: yarn start
+    volumes:
+      - ../../encacap_re_dashboard/.:/usr/src/re-dashboard # watch for changes
+      - ../../encacap_re_dashboard/node_modules:/usr/src/re-dashboard/node_modules # cache node_modules
+    env_file:
+      - ../../.env.development
+    environment:
+      - RE_DASH_APP_HOST=dashboard.re.encacap.dev
+      - RE_DASH_APP_PORT=3012
+      - REACT_APP_RE_DASH_APP_API_URL=https://api.re.encacap.dev
+    networks:
+      - encacap-dev-network
+    depends_on:
+      - postgres
+      - redis
+      - re-api
+
 networks:
   encacap-dev-network:
     driver: bridge

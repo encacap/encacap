@@ -2,3 +2,7 @@
 	path = encacap_re_api
 	url = https://github.com/encacap/encacap_re_api.git
 	branch = main
+[submodule "encacap_re_dashboard"]
+	path = encacap_re_dashboard
+	url = https://github.com/encacap/encacap_re_dashboard.git
+	branch = main
