@@ -40,7 +40,7 @@ services:
     env_file:
       - ../../.env.development
     environment:
-      - API_APP_PORT=3011
+      - RE_API_APP_PORT=3011
       - DB_POSTGRES_HOST=postgres
       - DB_REDIS_HOST=redis
     networks:
