@@ -41,6 +41,7 @@ services:
       - ../../.env.development
     environment:
       - RE_API_APP_PORT=3011
+      - RE_API_APP_HOST=0.0.0.0
       - DB_POSTGRES_HOST=postgres
       - DB_REDIS_HOST=redis
     networks:
@@ -67,17 +68,41 @@ services:
     environment:
       - RE_DASH_APP_HOST=dashboard.re.encacap.dev
       - RE_DASH_APP_PORT=3012
-      - REACT_APP_RE_DASH_APP_API_URL=https://api.re.encacap.dev
     networks:
       - encacap-dev-network
     depends_on:
-      - postgres
-      - redis
+      - re-api
+
+  re-acbuilding:
+    container_name: encacap-dev-re-acbuilding
+    build:
+      context: ../../encacap_re_acbuilding/.
+      dockerfile: ../.docker/dev/Dockerfile
+      target: re-acbuilding-builder
+    image: encacap-dev-re-acbuilding
+    ports:
+      - 3014:3014
+    command: yarn dev
+    volumes:
+      - ../../encacap_re_acbuilding/.:/usr/src/re-acbuilding # watch for changes
+      - ../../encacap_re_acbuilding/node_modules:/usr/src/re-acbuilding/node_modules # cache node_modules
+    env_file:
+      - ../../.env.development
+    environment:
+      - RE_ACB_APP_PORT=3014
+      - NEXT_PUBLIC_RE_ACB_API_URL=http://107.0.0.1:3011
+    networks:
+      - encacap-dev-network
+    depends_on:
       - re-api
 
 networks:
   encacap-dev-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 107.0.0.0/24
+          gateway: 107.0.0.1
 
 volumes:
   postgres:

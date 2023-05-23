@@ -6,3 +6,7 @@
 	path = encacap_re_dashboard
 	url = https://github.com/encacap/encacap_re_dashboard.git
 	branch = main
+[submodule "encacap_re_acbuilding"]
+	path = encacap_re_acbuilding
+	url = https://github.com/encacap/encacap_re_acbuilding.git
+	branch = main
